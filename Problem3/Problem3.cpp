@@ -3,15 +3,14 @@
 
 #include <iostream>
 #include <cstdint>
-#include <vector>
 #include <cassert>
 #include <chrono>
-#include <Windows.h>
 #include <algorithm>
 
 using namespace std;
 
-#ifndef _WIN32
+#ifdef _WIN32
+#include <Windows.h>
 
 class timer {
 public:

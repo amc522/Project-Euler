@@ -6,6 +6,7 @@
 #include <cassert>
 #include <chrono>
 #include <algorithm>
+#include <vector>
 
 using namespace std;
 
@@ -63,6 +64,10 @@ private:
 #endif
 
 bool isPrime(uint64_t num) {
+    if(num == 2 || num == 3 || num == 5) {
+        return true;
+    }
+
     if(num % 2 == 0 || num % 3 == 0 || num % 5 == 0) {
         return false;
     }
@@ -116,12 +121,44 @@ uint64_t findLargestFactorHappier(uint64_t limit) {
     return largestPrimeFactor;
 }
 
+uint64_t findLargestFactorFast(uint64_t limit) {
+    const uint64_t sqrtLimit = (uint64_t)std::ceil(sqrt((long double)limit));
+
+    uint64_t largestPrimeFactor = 1;
+    uint64_t reducedLimit = limit;
+    
+    while(reducedLimit % 2 == 0) {
+        reducedLimit /= 2;
+    }
+    while(reducedLimit % 3 == 0) {
+        reducedLimit /= 3;
+    }
+
+    for(uint64_t i = 5; i < sqrtLimit; i += 6) {
+        while(reducedLimit % i == 0) {
+            largestPrimeFactor = i;
+            reducedLimit /= i;
+        }
+
+        while(reducedLimit % (i + 2) == 0) {
+            largestPrimeFactor = i + 2;
+            reducedLimit /= (i + 2);
+        }
+
+        if(reducedLimit <= i) {
+            break;
+        }
+    }
+
+    return largestPrimeFactor;
+}
+
 int main(int argc, char* argv[])
 {
     timer totalTimer;
 
     const uint64_t limit = 600851475143;
-    const uint32_t runs = 1000;
+    const uint32_t runs = 100;
     uint64_t largestPrimeFactor = 1;
     
     totalTimer.start();
@@ -151,7 +188,24 @@ int main(int argc, char* argv[])
 
     cout << "Runtime happy: " << totalTimer.elapsedTime() << " (" << (totalTimer.elapsedTime() / runs) << " avg) sec\n";
 
+    cout << "Largest prime factor is " << largestPrimeFactor << "\n\n";
+
+    totalTimer.start();
+
+    for(int i = 0; i < runs; ++i) {
+        largestPrimeFactor = findLargestFactorFast(limit);
+    }
+
+    totalTimer.end();
+
+    assert(limit % largestPrimeFactor == 0);
+    assert(isPrime(largestPrimeFactor));
+
+    cout << "Runtime happy: " << totalTimer.elapsedTime() << " (" << (totalTimer.elapsedTime() / runs) << " avg) sec\n";
+
     cout << "Largest prime factor is " << largestPrimeFactor << "\n";
+
+
 
     system("pause");
 	return 0;

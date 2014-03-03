@@ -84,15 +84,10 @@ uint64_t findLargestFactorSad(uint64_t limit) {
     const uint64_t sqrtLimit = (uint64_t)std::ceil(sqrt((long double)limit));
 
     uint64_t largestPrimeFactor = 1;
-    uint64_t factor;
 
     for(uint64_t i = 2; i < sqrtLimit; ++i) {
-        if(limit % i == 0) {
-            factor = limit / i;
-
-            if(isPrime(i)) {
-                largestPrimeFactor = i;
-            }
+        if(limit % i == 0 && isPrime(i)) {
+            largestPrimeFactor = i;
         }
     }
     

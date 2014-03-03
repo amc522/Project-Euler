@@ -201,7 +201,7 @@ int main(int argc, char* argv[])
     assert(limit % largestPrimeFactor == 0);
     assert(isPrime(largestPrimeFactor));
 
-    cout << "Runtime happy: " << totalTimer.elapsedTime() << " (" << (totalTimer.elapsedTime() / runs) << " avg) sec\n";
+    cout << "Runtime fastest: " << totalTimer.elapsedTime() << " (" << (totalTimer.elapsedTime() / runs) << " avg) sec\n";
 
     cout << "Largest prime factor is " << largestPrimeFactor << "\n";
 

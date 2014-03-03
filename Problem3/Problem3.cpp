@@ -140,9 +140,10 @@ uint64_t findLargestFactorFast(uint64_t limit) {
             reducedLimit /= i;
         }
 
-        while(reducedLimit % (i + 2) == 0) {
-            largestPrimeFactor = i + 2;
-            reducedLimit /= (i + 2);
+        uint64_t iPlus2 = i + 2;
+        while(reducedLimit % (iPlus2) == 0) {
+            largestPrimeFactor = iPlus2;
+            reducedLimit /= iPlus2;
         }
 
         if(reducedLimit <= i) {

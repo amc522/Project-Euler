@@ -1,0 +1,144 @@
+Term 1
+----------
+fibRecursive(1) = 1
+Running time is 2.763151714e-06 (2.763151714e-07 avg) secs [10 runs]
+
+fibRecursiveMemo(1) = 1
+Running time is 6.71051130544e-06 (6.71051130544e-07 avg) secs [10 runs]
+
+fibIterative(1) = 1
+Running time is 6.31577534629e-06 (6.31577534629e-07 avg) secs [10 runs]
+
+
+Term 4
+----------
+fibRecursive(4) = 3
+Running time is 1.02631349377e-05 (1.02631349377e-06 avg) secs [10 runs]
+
+fibRecursiveMemo(4) = 3
+Running time is 2.763151714e-05 (2.763151714e-06 avg) secs [10 runs]
+
+fibIterative(4) = 3
+Running time is 1.02631349377e-05 (1.02631349377e-06 avg) secs [10 runs]
+
+
+Term 7
+----------
+fibRecursive(7) = 13
+Running time is 4.57893712606e-05 (4.57893712606e-06 avg) secs [10 runs]
+
+fibRecursiveMemo(7) = 13
+Running time is 4.144727571e-05 (4.144727571e-06 avg) secs [10 runs]
+
+fibIterative(7) = 13
+Running time is 1.30262866517e-05 (1.30262866517e-06 avg) secs [10 runs]
+
+
+Term 10
+----------
+fibRecursive(10) = 55
+Running time is 0.000189473260389 (1.89473260389e-05 avg) secs [10 runs]
+
+fibRecursiveMemo(10) = 55
+Running time is 5.96051298306e-05 (5.96051298306e-06 avg) secs [10 runs]
+
+fibIterative(10) = 55
+Running time is 1.61841743249e-05 (1.61841743249e-06 avg) secs [10 runs]
+
+
+Term 13
+----------
+fibRecursive(13) = 233
+Running time is 0.000802892940897 (8.02892940897e-05 avg) secs [10 runs]
+
+fibRecursiveMemo(13) = 233
+Running time is 7.77629839512e-05 (7.77629839512e-06 avg) secs [10 runs]
+
+fibIterative(13) = 233
+Running time is 2.05262698754e-05 (2.05262698754e-06 avg) secs [10 runs]
+
+
+Term 16
+----------
+fibRecursive(16) = 987
+Running time is 0.00347999221581 (0.000347999221581 avg) secs [10 runs]
+
+fibRecursiveMemo(16) = 987
+Running time is 9.31576863578e-05 (9.31576863578e-06 avg) secs [10 runs]
+
+fibIterative(16) = 987
+Running time is 2.28946856303e-05 (2.28946856303e-06 avg) secs [10 runs]
+
+
+Term 19
+----------
+fibRecursive(19) = 4181
+Running time is 0.0138441795591 (0.00138441795591 avg) secs [10 runs]
+
+fibRecursiveMemo(19) = 4181
+Running time is 0.000117631315825 (1.17631315825e-05 avg) secs [10 runs]
+
+fibIterative(19) = 4181
+Running time is 2.36841575486e-05 (2.36841575486e-06 avg) secs [10 runs]
+
+
+Term 22
+----------
+fibRecursive(22) = 17711
+Running time is 0.0585926320954 (0.00585926320954 avg) secs [10 runs]
+
+fibRecursiveMemo(22) = 17711
+Running time is 0.000130657602476 (1.30657602476e-05 avg) secs [10 runs]
+
+fibIterative(22) = 17711
+Running time is 2.72367811809e-05 (2.72367811809e-06 avg) secs [10 runs]
+
+
+Term 25
+----------
+fibRecursive(25) = 75025
+Running time is 0.249293916053 (0.0249293916053 avg) secs [10 runs]
+
+fibRecursiveMemo(25) = 75025
+Running time is 0.00014723651276 (1.4723651276e-05 avg) secs [10 runs]
+
+fibIterative(25) = 75025
+Running time is 2.99999328949e-05 (2.99999328949e-06 avg) secs [10 runs]
+
+
+Term 28
+----------
+fibRecursive(28) = 317811
+Running time is 1.06392354122 (0.106392354122 avg) secs [10 runs]
+
+fibRecursiveMemo(28) = 317811
+Running time is 0.000178025917574 (1.78025917574e-05 avg) secs [10 runs]
+
+fibIterative(28) = 317811
+Running time is 3.31578205681e-05 (3.31578205681e-06 avg) secs [10 runs]
+
+
+Term 31
+----------
+fibRecursive(31) = 1346269
+Running time is 4.50564610579 (0.450564610579 avg) secs [10 runs]
+
+fibRecursiveMemo(31) = 1346269
+Running time is 0.000203683754918 (2.03683754918e-05 avg) secs [10 runs]
+
+fibIterative(31) = 1346269
+Running time is 3.51315003631e-05 (3.51315003631e-06 avg) secs [10 runs]
+
+
+Term 34
+----------
+fibRecursive(34) = 5702887
+Running time is 19.3786867845 (1.93786867845 avg) secs [10 runs]
+
+fibRecursiveMemo(34) = 5702887
+Running time is 0.000199736395324 (1.99736395324e-05 avg) secs [10 runs]
+
+fibIterative(34) = 5702887
+Running time is 3.82893880371e-05 (3.82893880371e-06 avg) secs [10 runs]
+
+

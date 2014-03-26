@@ -1,7 +1,57 @@
+# Theory:
+# Every divisor of a number can be represented by
+# its prime factors. Each divisor of n has its own
+# set of prime factors, and that set of prime
+# factors is a subset of n's prime factors. By multiplying
+# every combination of primes factors and adding them,
+# you can find the sum of the divisors
+#
+# Ex:
+# Lets use 12 as an example. Its divisors are:
+# 	1, 2, 3, 4, 6
+# The sum of those divisors is 16.
+# Now if we break those divisors into their primes
+# we get the following (excluding 1):
+# 2 = 2^1
+# 3 = 3^1
+# 4 = 2^2
+# 6 = 2^1 * 3^1
+#
+# If you find all the prime factors of 12 you get
+# three 2's and two 3's, the same number of prime
+# factors of all the divisors.
+# Instead of multiplying all combinations of prime
+# factors to get the divisors and summing them, you
+# can use the form:
+# 	(2^0 + 2^1 + 2^2)(3^0 + 3^1) - 12 = 16 
+# To get that form lets look at the divisors like this:
+# 1  = 2^0 * 2^0 * 3^0
+# 2  = 2^1 * 2^0 * 3^0
+# 3  = 2^0 * 2^0 * 3^1
+# 4  = 2^1 * 2^1 * 3^0
+# 6  = 2^0 * 2^1 * 3^1
+# 12 = 2^1 * 2^1 * 3^1
+#
+# (2^0 * 2^0 * 3^0) + (2^1 * 2^0 * 3^0) + (2^0 * 2^0 * 3^1) + (2^1 * 2^1 * 3^0) + (2^0 * 2^1 * 3^1) + (2^1 * 2^1 * 3^1) - 12 = 
+# 2^0(3^0) + 2^1(3^0) + 2^0(3^1) + 2^2(3^0) + 2^2(3^1) + 2^1(3^1) + 2^2(3^1) - 12 = 
+# (2^0 + 2^1 + 2^2)(3^0 * 3^1) - 12 =
+# (2^3 - 1)((3^2 - 1) / 2) - 12 = 16
+#
+# Which can be expressed in the general form as:
+# pf = a list of prime factors
+# p = the current prime
+# n = the number of times the current prime is a factor of the number
+# product for each pf ( (p^(n + 1) - 1) / (n - 1) )
+
 import math
 import timeit
 import sys
 
+# reduces 'num' by 'factor' until 'num'
+# is no longer divisible by 'factor'
+# returns the result of 'num' being divided
+# and the amount of times 'num' was divisible
+# by 'factor'
 def reduceFactor(num, factor):
 	if not num % factor == 0:
 		return (num, 0)
@@ -15,6 +65,11 @@ def reduceFactor(num, factor):
 
 	return (currentBound, count)
 
+# This find divisor sum function is based
+# on the and optimized prime factorization
+# function. The optimization is based on 
+# finding primes greater than five that arent
+# already divisible by 2 or 3
 def findDivisorSum(num):
 	divisorSum = 1
 	currentBound = num;
@@ -48,11 +103,15 @@ def findDivisorSum(num):
 		i += 4
 
 	if divisorSum < num:
+		# if we got here, the final divisor is a prime and needs
+		# to be accounted for
 		divisorSum *= (currentBound ** 2 - 1) / (currentBound - 1)
 	
 	return divisorSum - num
 
 def amicableSum(upperBound):
+	# keep a dictionary of already found sums so we arent
+	# recomputing the same sum over and over
 	sumDict = {}
 	amicableList = []
 	counter = 0
@@ -70,6 +129,10 @@ def amicableSum(upperBound):
 			sumDict[i] = divisorSum
 
 		if divisorSum <= i:
+			# if the sum of the divisors is less than i
+			# we know we can continue on because if it was
+			# an amicable pair, we would already have
+			# checked it
 			i += 1
 			continue
 
@@ -84,6 +147,10 @@ def amicableSum(upperBound):
 			amicableList.append(i)
 			amicableList.append(divisorSum)
 			i = divisorSum
+
+			# can skip all numbers inbetween this amicable
+			# pair. I dont have actual proof for why, but
+			# it was an observation i made
 
 		i += 1
 

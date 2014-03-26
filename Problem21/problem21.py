@@ -11,7 +11,8 @@
 # 	1, 2, 3, 4, 6
 # The sum of those divisors is 16.
 # Now if we break those divisors into their primes
-# we get the following (excluding 1):
+# we get the following:
+# 1 = 1
 # 2 = 2^1
 # 3 = 3^1
 # 4 = 2^2
@@ -38,10 +39,10 @@
 # (2^3 - 1)((3^2 - 1) / 2) - 12 = 16
 #
 # Which can be expressed in the general form as:
-# pf = a list of prime factors
+# pf(x) = a list of prime factors
 # p = the current prime
 # n = the number of times the current prime is a factor of the number
-# product for each pf ( (p^(n + 1) - 1) / (n - 1) )
+# (product for each pf(x) ( (p^(n + 1) - 1) / (n - 1) ) ) - x
 
 import math
 import timeit
